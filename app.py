@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import gradio as gr
+from fastapi import FastAPI
 
 # -----------------------------
 # Default Dataset
@@ -357,7 +358,11 @@ with gr.Blocks() as demo:
 
     gr.HTML("<footer>© 2025 Student Success AI | Built with ❤️</footer>")
 
-app = demo.app
+# Create the FastAPI app for Vercel
+app = FastAPI()
+
+# Mount the Gradio demo to the FastAPI app at the root
+app = gr.mount_gradio_app(app, demo, path="/")
 
 if __name__ == "__main__":
     demo.launch(css=custom_css)
