@@ -301,7 +301,7 @@ footer {
 # -----------------------------
 # Gradio UI with Styling
 # -----------------------------
-with gr.Blocks(css=custom_css) as demo:
+with gr.Blocks() as demo:
     gr.HTML("<div style='text-align:center; padding:15px; background:#4f46e5; color:white; font-size:22px; font-weight:bold; border-radius:10px;'>🎓 AI-Powered Dropout Prediction & Skill Rebuilder System</div>")
 
     with gr.Tab("📊 Dashboard"):
@@ -355,6 +355,9 @@ with gr.Blocks(css=custom_css) as demo:
         progress_output = gr.Textbox()
         progress_btn.click(fn=mark_module_completed, inputs=progress_id, outputs=progress_output)
 
-    gr.HTML("<footer>© 2025 Student Success AI | Built with ❤️ on Hugging Face</footer>")
+    gr.HTML("<footer>© 2025 Student Success AI | Built with ❤️</footer>")
 
-demo.launch()
+app = demo.app
+
+if __name__ == "__main__":
+    demo.launch(css=custom_css)

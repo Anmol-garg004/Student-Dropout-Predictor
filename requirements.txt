@@ -3,4 +3,6 @@ scikit-learn
 joblib
 gradio
 matplotlib
+fastapi
+uvicorn
 
